@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kant's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Dela Gothic One', sans-serif;
+      background-color: #121212;
+      color: #FFFACD;
+      /* Cream color */
+    }
+
+    a {
+      color: #FF7043;
+      /* Creamy Orange */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #FFAB91;
+      /* Lighter Orange */
+    }
+
+    /* Navbar - Desktop */
+    .navbar.desktop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 6rem;
+      /* Slimmer sidebar */
+      background: transparent;
+      /* Transparent background */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 3rem 0;
+      /* Increased padding */
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 2.5rem;
+      /* Increased text size */
+      text-align: center;
+      color: #FFFACD;
+      /* Ensure cream color */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Mobile Navbar */
+    .navbar.mobile {
+      display: none;
+      /* Hide the sidebar on mobile */
+    }
+
+    @media (max-width: 768px) {
+      .navbar.desktop {
+        display: none;
+        /* Hide the sidebar on smaller screens */
+      }
+
+      .navbar.mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        /* Reduced padding for mobile */
+        background: transparent;
+        /* Transparent background */
+      }
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-btn {
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: #FF7043;
+        /* Creamy Orange */
+        cursor: pointer;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 3rem;
+        left: 0;
+        right: 0;
+        background: #121212;
+        border: 1px solid #FF7043;
+        /* Creamy Orange border */
+        padding: 1rem;
+        list-style: none;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 8px;
+        /* Curved borders */
+        min-width: 200px;
+      }
+
+      .dropdown-menu li {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      .dropdown-menu li:hover {
+        background-color: #FF7043;
+        /* Creamy Orange hover effect */
+        color: #121212;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      /* Adjust font sizes for mobile */
+      h1 {
+        font-size: 2.5rem !important;
+        /* Force mobile font size change */
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        /* Adjusted for mobile */
+      }
+
+      .nav-links a {
+        font-size: 1.8rem;
+        /* Reduced size for mobile */
+      }
+
+      /* Reduce footer font size on mobile */
+      .footer {
+        font-size: 0.6rem !important;
+        /* Smaller footer font size for mobile */
+        padding: 0.3rem 0;
+        /* Smaller padding */
+      }
+
+      /* Adjust margin and padding for .main on mobile */
+      .main {
+        margin-left: 0 !important;
+        /* Reduced margin for mobile */
+        padding: 0 !important;
+        /* Reduced padding for mobile */
+      }
+
+      .section {
+        padding: 1rem 2rem !important;
+      }
+
+    }
+
+    /* Main Sections */
+    .main {
+      margin-left: 6rem;
+      /* Adjust for increased sidebar width on desktop */
+      padding: 3rem 4rem;
+      /* Increased padding for desktop */
+    }
+
+    .section {
+      padding: 3rem 4rem;
+      /* Increased padding */
+    }
+
+    .section.hidden {
+      display: none;
+    }
+
+    h1 {
+      font-size: 4rem;
+      /* Increased font size */
+      color: #FFFACD;
+      /* Cream Highlight */
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      /* Increased size */
+    }
+
+    /* Footer */
+    .footer {
+      position: relative;
+      /* Fix position */
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      background: transparent;
+      color: #FFFACD;
+      /* Cream text color */
+      margin-top: auto;
+      /* Push footer to the bottom */
+    }
+
+    /* Page transition effect */
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Apply the lighter creamy orange color to all headings */
+    .heading {
+      color: #FFAB91;
+      /* Lighter Creamy Orange */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar (Desktop) -->
+  <div class="navbar desktop">
+    <ul class="nav-links">
+      <li><a class="nav-link-el" href="#landing">🏠</a></li>
+      <li><a class="nav-link-el" href="#about">🎨</a></li>
+      <li><a class="nav-link-el" href="#projects">🛠️</a></li>
+      <li><a class="nav-link-el" href="#skills">✨</a></li>
+      <li><a class="nav-link-el" href="#contact">📞</a></li>
+    </ul>
+  </div>
+
+  <!-- Navbar (Mobile) -->
+  <div class="navbar mobile">
+    <div class="dropdown">
+      <button class="dropdown-btn">☰</button>
+      <ul class="dropdown-menu">
+        <li><a href="#landing">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div id="landing" class="section">
+      <h1 class="heading">Kant's Portfolio</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula turpis vitae turpis convallis, sed
+        tincidunt ipsum facilisis. Quisque condimentum, mauris eget maximus tempus, dui orci fermentum purus, in cursus
+        nunc felis sed sapien. Integer ultricies auctor lorem, non dignissim augue iaculis ut. Ut nec dolor eget nulla
+        tincidunt malesuada. Integer suscipit sapien ut libero congue, non egestas est facilisis. Nam vel nibh quam.
+        Donec malesuada nisi at dolor euismod scelerisque.
+      </p>
+    </div>
+    <div id="about" class="section hidden">
+      <h2 class="heading">About Me</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare sollicitudin purus et tempor. Donec
+        varius sed augue eu venenatis. Cras fringilla sem ac nisi pharetra, ac interdum erat feugiat. Aliquam erat
+        volutpat. Nullam tincidunt magna sed urna egestas, et tincidunt orci faucibus. Sed dictum, odio nec sodales
+        finibus, neque ante egestas elit, sit amet rhoncus elit nulla non urna. Nam auctor pretium urna, at vehicula
+        nisl tempor eu. Sed vulputate mi eget massa dignissim, eu lobortis elit egestas.
+      </p>
+    </div>
+    <div id="projects" class="section hidden">
+      <h2 class="heading">My Projects</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et libero ut felis fermentum rhoncus. Vivamus
+        interdum est non lorem convallis gravida. Aenean aliquam, metus non dapibus facilisis, nisl lorem pretium
+        lectus, ac bibendum mi nisi a mauris. Phasellus porttitor risus eu felis scelerisque, nec suscipit sapien
+        sodales. Proin consectetur, ante ac efficitur eleifend, lectus nunc luctus eros, in elementum augue risus sit
+        amet enim. Cras ac sem vitae nulla hendrerit hendrerit.
+      </p>
+    </div>
+    <div id="skills" class="section hidden">
+      <h2 class="heading">My Skills</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue justo vitae gravida mollis. Ut
+        consectetur metus sit amet erat facilisis, id pellentesque lectus egestas. Nam dignissim massa nec tempor
+        convallis. Sed viverra libero augue, id vehicula purus condimentum sit amet. Quisque ac tortor lacinia, iaculis
+        ante vitae, fringilla ante. Nunc ultricies nulla eu dictum volutpat. Donec eget dolor vel purus scelerisque
+        malesuada.
+      </p>
+    </div>
+    <div id="contact" class="section hidden">
+      <h2 class="heading">Contact</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum magna nec lorem congue, a placerat
+        sapien vulputate. Etiam volutpat ante quis orci tristique, vel ullamcorper ipsum sollicitudin. Nulla vitae nunc
+        eu enim dictum suscipit. Nunc volutpat neque sit amet erat luctus, a auctor odio dignissim. Sed faucibus ante et
+        arcu varius, sit amet convallis leo lacinia. Suspendisse potenti.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2024 Kant. Made with GPT-4o supervised.</p>
+  </footer>
+
+  <script>
+    // DOM Elements
+    const navbarLinks = document.querySelectorAll('.navbar .nav-links a');
+    const mobileNavbarLinks = document.querySelectorAll('.navbar.mobile .dropdown-menu a');  // Mobile navbar links
+    const sections = document.querySelectorAll('.section');
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const footer = document.querySelector('.footer');
+
+    // Handle section display (page transitions)
+    function showSection(id) {
+      sections.forEach(section => {
+        if (section.id === id) {
+          section.classList.remove('hidden');
+          section.classList.add('fade-in');
+        } else {
+          section.classList.add('hidden');
+        }
+      });
+    }
+
+    // Smooth transition between pages
+    function handlePageTransition(event) {
+      event.preventDefault();
+      const targetId = event.target.getAttribute('href').substring(1); // Extracts the section ID
+      showSection(targetId);
+      document.body.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Add event listeners for navbar links (Desktop)
+    navbarLinks.forEach(link => {
+      link.addEventListener('click', handlePageTransition);
+    });
+
+    // Add event listeners for navbar links (Mobile)
+    mobileNavbarLinks.forEach(link => {
+      link.addEventListener('click', handlePageTransition);
+    });
+
+    // Handle mobile dropdown menu
+    dropdownBtn.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent the click event from propagating
+      dropdownMenu.classList.toggle('show');
+    });
+
+    // Close the dropdown when clicking outside of it
+    document.addEventListener('click', (event) => {
+      if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+
+    // Footer - Keep at the bottom
+    window.addEventListener('load', () => {
+      const bodyHeight = document.body.offsetHeight;
+      const windowHeight = window.innerHeight;
+      if (bodyHeight < windowHeight) {
+        footer.style.position = 'absolute';
+        footer.style.bottom = '0';
+      }
+    });
+
+    // Initialize the landing page
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('landing'); // Start by showing the landing page
+    });
+
+  </script>
+</body>
+
+</html>
